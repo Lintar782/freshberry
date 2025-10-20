@@ -1,0 +1,584 @@
+/* =================== FONT & VARS =================== */
+:root {
+    --color-green: #2E7D32; /* Hijau Segar - Primer */
+    --color-orange: #FFA726; /* Orange Cerah - Aksen CTA */
+    --color-white: #FFFFFF;
+    --color-beige: #F5F5DC; /* Beige Lembut - Background Sekunder */
+    --color-dark: #333333;
+    --color-soft-green: #E8F5E9; /* Testimoni Background */
+    --font-headline: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --spacing-md: 20px;
+    --spacing-lg: 40px;
+}
+
+/* =================== BASE & UTILS =================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-dark);
+    line-height: 1.6;
+    background-color: var(--color-white);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-green);
+    transition: color 0.3s ease;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-headline);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.padding-y {
+    padding: 80px 0;
+}
+
+.bg-beige {
+    background-color: var(--color-beige);
+}
+
+.bg-soft-green {
+    background-color: var(--color-soft-green);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-green);
+}
+
+.margin-top-lg {
+    margin-top: var(--spacing-lg);
+}
+
+/* =================== CTA BUTTONS =================== */
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.primary-cta {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+}
+
+.primary-cta:hover {
+    background-color: #FF9800; /* Sedikit lebih gelap */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 167, 38, 0.4);
+}
+
+.secondary-cta {
+    background-color: transparent;
+    color: var(--color-white);
+    border: 2px solid var(--color-white);
+    margin-left: var(--spacing-md);
+}
+
+.secondary-cta:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.large-cta {
+    padding: 15px 35px;
+    font-size: 1.1rem;
+}
+
+/* =================== 1. HEADER =================== */
+.sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.8); /* Glass Blur Effect Base */
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-headline);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-green);
+}
+
+.logo-icon {
+    font-size: 2rem;
+    margin-right: 5px;
+}
+
+nav a {
+    color: var(--color-dark);
+    margin: 0 15px;
+    position: relative;
+    padding: 5px 0;
+}
+
+/* Hover Underline Animation */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-orange);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* =================== 2. HERO SECTION =================== */
+.hero-section {
+    position: relative;
+    height: 70vh; /* Tinggi yang nyaman */
+    min-height: 550px;
+    display: flex;
+    align-items: center;
+    background: url('bg.jpg') center/cover no-repeat fixed; /* Parallax Ringan */
+    text-align: center;
+    padding-top: 80px; /* Kompensasi header */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Overlay gelap agar teks kontras */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+    color: var(--color-white);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-headline {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subheadline {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+/* =================== 3. ABOUT SECTION =================== */
+.content-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.sertifikasi-badges {
+    margin-top: 15px;
+}
+
+.badge {
+    display: inline-block;
+    background-color: var(--color-soft-green);
+    color: var(--color-green);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+/* =================== 4. PRODUCT SECTION =================== */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+}
+
+.product-card {
+    background-color: var(--color-white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.product-img-wrapper {
+    overflow: hidden;
+    height: 200px;
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.05); /* Hover Zoom-in */
+}
+
+.product-card h3, .product-card p {
+    padding: 5px 15px;
+}
+
+.product-name {
+    font-size: 1.3rem;
+    color: var(--color-green);
+    margin-top: 10px;
+}
+
+.product-category {
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-orange);
+    margin-bottom: 10px;
+}
+
+.btn-beli {
+    display: block;
+    background-color: var(--color-green);
+    color: var(--color-white);
+    padding: 10px 0;
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+}
+
+.btn-beli:hover {
+    background-color: #388E3C;
+}
+
+/* =================== 5. USP SECTION =================== */
+.usp-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+    text-align: center;
+}
+
+.usp-item {
+    padding: var(--spacing-md);
+    border: 1px solid #eee;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.usp-item:hover {
+    background-color: var(--color-soft-green);
+    cursor: default;
+}
+
+.usp-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* =================== 6. TESTIMONIALS SECTION =================== */
+.testimonial-carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.testi-card {
+    background-color: var(--color-white);
+    padding: var(--spacing-lg);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    display: none; /* Default hide */
+    animation: fadein 0.5s ease-out;
+}
+
+.testi-card.active-testi {
+    display: block;
+}
+
+.comment {
+    font-style: italic;
+    font-size: 1.1rem;
+    margin: 15px 0 20px;
+}
+
+.customer-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Carousel Dots */
+.carousel-dots {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dot.active-dot {
+    background-color: var(--color-green);
+}
+
+/* =================== 7. CTA / PROMO SECTION =================== */
+.promo-section {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    text-align: center;
+}
+
+.promo-headline {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.promo-subheadline {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.promo-cta {
+    background-color: var(--color-white);
+    color: var(--color-orange);
+}
+
+.promo-cta:hover {
+    background-color: #fff;
+    color: #E65100;
+}
+
+/* Shine Effect (Microinteraction) */
+.shine-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.shine-effect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: skewX(-20deg);
+    transition: all 0.7s;
+}
+
+.shine-effect:hover::after {
+    left: 150%;
+}
+
+/* =================== 8. FAQ SECTION =================== */
+.accordion-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    font-family: var(--font-headline);
+    font-size: 1.1rem;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-body {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+
+.accordion-body.open {
+    max-height: 200px; /* Nilai besar agar cukup untuk konten */
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+}
+
+.accordion-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active .accordion-icon {
+    transform: rotate(45deg); /* Animasi '+' menjadi 'x' */
+}
+
+
+/* =================== 9. FOOTER =================== */
+.footer-section {
+    background-color: var(--color-dark);
+    color: #ccc;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+}
+
+.logo-footer {
+    color: var(--color-orange);
+}
+
+.footer-col h4 {
+    color: var(--color-white);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul a {
+    color: #ccc;
+    display: block;
+    padding: 5px 0;
+}
+
+.footer-col ul a:hover {
+    color: var(--color-orange);
+}
+
+.copyright-bar {
+    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid #444;
+    font-size: 0.9rem;
+}
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 992px) {
+    .product-grid, .usp-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .content-2-col {
+        grid-template-columns: 1fr;
+    }
+    .text-content {
+        order: 2;
+    }
+    .image-content {
+        order: 1;
+        margin-bottom: 30px;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-content nav {
+        display: none; /* Sembunyikan menu di mobile, fokus ke CTA/Hamburger */
+    }
+    .nav-content {
+        padding: 0 10px;
+    }
+    .hero-headline {
+        font-size: 2.5rem;
+    }
+    .product-grid, .usp-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-cta-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .secondary-cta {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
